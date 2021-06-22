@@ -1,0 +1,11 @@
+name: gc21_teamg
+channels:
+  - conda-forge
+dependencies: 
+  - python=3
+  - pandas
+  - numpy
+  - scipy
+  - matplotlib
+  - scikit-learn
+  - jupyter
