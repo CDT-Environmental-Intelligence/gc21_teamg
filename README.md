@@ -61,7 +61,7 @@ $ jupyter lab .
 ```
 
 ### R (renv)
-`renv` was used to manage the software environment for R.
+[`renv`](https://rstudio.github.io/renv/index.html) was used to manage the software environment for R.
 
 Follow these steps to recreate the environment to run the `r-scripts` in this project:
 
