@@ -2,7 +2,7 @@
 library(tidyverse)
 
 # Data
-yield = read_csv("../datadrive/TeamG/data/FAOSTAT_yield.csv") %>%
+yield = read_csv("../data/FAOSTAT_yield.csv") %>%
   select(Year, Area, Value) %>%
   spread(Area, -Year) %>%
   rename_at(names(.), .funs=tolower)
@@ -10,31 +10,31 @@ yield = read_csv("../datadrive/TeamG/data/FAOSTAT_yield.csv") %>%
 # Munge
 data_s = yield %>%
   select(c('year', 'argentina', 'australia', 'chile', 'south africa')) %>%
-  left_join(read_csv("../datadrive/TeamG/data/nino34_annual_mean_south.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/amo_annual_mean_south.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/nao_annual_mean_south.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/dmi_annual_mean_south.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/pdo_annual_mean_south.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/nino34_annual_variance_south.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/amo_annual_variance_south.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/nao_annual_variance_south.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/dmi_annual_variance_south.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/pdo_annual_variance_south.csv"), 'year') %>%
+  left_join(read_csv("../data/nino34_annual_mean_south.csv"), 'year') %>%
+  left_join(read_csv("../data/amo_annual_mean_south.csv"), 'year') %>%
+  left_join(read_csv("../data/nao_annual_mean_south.csv"), 'year') %>%
+  left_join(read_csv("../data/dmi_annual_mean_south.csv"), 'year') %>%
+  left_join(read_csv("../data/pdo_annual_mean_south.csv"), 'year') %>%
+  left_join(read_csv("../data/nino34_annual_variance_south.csv"), 'year') %>%
+  left_join(read_csv("../data/amo_annual_variance_south.csv"), 'year') %>%
+  left_join(read_csv("../data/nao_annual_variance_south.csv"), 'year') %>%
+  left_join(read_csv("../data/dmi_annual_variance_south.csv"), 'year') %>%
+  left_join(read_csv("../data/pdo_annual_variance_south.csv"), 'year') %>%
   drop_na()
 names(data_s) = gsub(" ", "_", names(data_s))
 
 data_n = yield %>%
   select(c('year', 'france', 'italy', 'spain', 'united states of america')) %>%
-  left_join(read_csv("../datadrive/TeamG/data/nino34_annual_mean_north.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/amo_annual_mean_north.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/nao_annual_mean_north.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/dmi_annual_mean_north.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/pdo_annual_mean_north.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/nino34_annual_variance_north.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/amo_annual_variance_north.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/nao_annual_variance_north.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/dmi_annual_variance_north.csv"), 'year') %>%
-  left_join(read_csv("../datadrive/TeamG/data/pdo_annual_variance_north.csv"), 'year') %>%
+  left_join(read_csv("../data/nino34_annual_mean_north.csv"), 'year') %>%
+  left_join(read_csv("../data/amo_annual_mean_north.csv"), 'year') %>%
+  left_join(read_csv("../data/nao_annual_mean_north.csv"), 'year') %>%
+  left_join(read_csv("../data/dmi_annual_mean_north.csv"), 'year') %>%
+  left_join(read_csv("../data/pdo_annual_mean_north.csv"), 'year') %>%
+  left_join(read_csv("../data/nino34_annual_variance_north.csv"), 'year') %>%
+  left_join(read_csv("../data/amo_annual_variance_north.csv"), 'year') %>%
+  left_join(read_csv("../data/nao_annual_variance_north.csv"), 'year') %>%
+  left_join(read_csv("../data/dmi_annual_variance_north.csv"), 'year') %>%
+  left_join(read_csv("../data/pdo_annual_variance_north.csv"), 'year') %>%
   drop_na()
 names(data_n) = gsub(" ", "_", names(data_n))
 
@@ -61,4 +61,4 @@ for (val in north) {
   modnv[[val]] = summary(lm(paste(val, fmn), data=data_n))
 }
 
-
+modnv

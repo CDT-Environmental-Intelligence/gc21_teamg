@@ -4,18 +4,18 @@ library("merTools")
 library("tidyverse")
 
 # Load data
-yield = read_csv("../datadrive/TeamG/data/FAOSTAT_yield.csv") %>%
+yield = read_csv("../data/FAOSTAT_yield.csv") %>%
   rename(year=Year, yield=Value)
 
-nino = read_csv("../datadrive/TeamG/data/nino34.csv") %>%
+nino = read_csv("../data/nino34.csv") %>%
   gather("month", "nino34", -year) 
 
-amo = read_csv("../datadrive/TeamG/data/amo.csv") %>%
+amo = read_csv("../data/amo.csv") %>%
   gather("month", "amo", -year)
 
-nao = read_csv("../datadrive/TeamG/data/nao.csv") 
+nao = read_csv("../data/nao.csv") 
 
-dmi = read_csv("../datadrive/TeamG/data/dmi.csv") %>%
+dmi = read_csv("../data/dmi.csv") %>%
   gather("month", "dmi", -year)
 
 # Wrangle
