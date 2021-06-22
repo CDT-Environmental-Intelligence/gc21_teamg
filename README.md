@@ -82,4 +82,4 @@ renv::restore()
 ```
 
 # Poster
-<image src="GC_TeamG_TipplingPoints_poster.png"/>
+<image src="poster/GC_TeamG_TipplingPoints_poster.png"/>
