@@ -65,13 +65,11 @@ $ jupyter lab .
 
 Follow these steps to recreate the environment to run the `r-scripts` in this project:
 
-1. Launch R in a terminal:
+1. Launch R in a terminal (or an R console in RStudio and open the folder as a project):
 ```bash
 $ cd gc21_teamg
 $ R
 ```
- or an R console in RStudio and open the folder as a project.
-
 
 2. Install `renv` (if not already available):
 ```R
